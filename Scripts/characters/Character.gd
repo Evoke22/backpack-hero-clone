@@ -1,19 +1,21 @@
 extends CharacterBody2D
 
-class Character:
-	var max_hp = 100
+class_name Character
 
-	func _input(event):
-		if event.is_action_pressed("ui_up"):
-			pass
+var max_health
+var current_hp
+var shield
+
+func take_damage(damage):
+	current_hp -= damage
+	%HealthBar.value = current_hp
 	
-	func attack(character, damage):
-		character.take_damage(damage)
-	
-	func take_damage(damage):
-		pass
-	
-	func death():
-		pass
-		
-	
+	if current_hp <= 0:
+		death()
+
+func death():
+	$AnimatedSprite2D.play("death")
+	await get_tree().create_timer(2.0).timeout
+	queue_free()
+
+
