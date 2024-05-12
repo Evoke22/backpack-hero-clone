@@ -1,23 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://co71p5hbqr7gs"]
+[gd_scene load_steps=5 format=3 uid="uid://co71p5hbqr7gs"]
 
 [ext_resource type="PackedScene" uid="uid://cplco1omti57b" path="res://Scenes/Characters/Player.tscn" id="1_8mhl0"]
-[ext_resource type="PackedScene" uid="uid://dx3jdldpq6x1j" path="res://Scenes/Characters/Knight.tscn" id="2_7f1px"]
+[ext_resource type="PackedScene" uid="uid://tn5pneawyqtm" path="res://Scenes/Background/background.tscn" id="1_mn2ok"]
+[ext_resource type="Script" path="res://temp/node_2d.gd" id="1_u1ibf"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_on0t2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6gps"]
+radius = 15.508
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_u1ibf")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 654.0
-texture = SubResource("CanvasTexture_on0t2")
+[node name="background" parent="." instance=ExtResource("1_mn2ok")]
+position = Vector2(3, -317)
 
 [node name="Player" parent="." instance=ExtResource("1_8mhl0")]
-position = Vector2(467, 321)
+position = Vector2(284, 546)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(579, 277)
-zoom = Vector2(4, 4)
+[node name="Position1" type="Area2D" parent="."]
+position = Vector2(532, 586)
 
-[node name="Knight" parent="." instance=ExtResource("2_7f1px")]
-position = Vector2(601, 323)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position1"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_u6gps")
+debug_color = Color(0.268354, 0.623719, 0.317306, 0.42)
+
+[node name="Position2" type="Area2D" parent="."]
+position = Vector2(754, 586)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_u6gps")
+debug_color = Color(0.268354, 0.623719, 0.317306, 0.42)
+
+[node name="Position3" type="Area2D" parent="."]
+position = Vector2(974, 586)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position3"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_u6gps")
+debug_color = Color(0.268354, 0.623719, 0.317306, 0.42)
+
+[node name="Enemy_Spawn" type="Area2D" parent="."]
+position = Vector2(1502, 586)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Spawn"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_u6gps")
+debug_color = Color(0.268354, 0.623719, 0.317306, 0.42)

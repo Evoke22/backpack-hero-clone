@@ -334,6 +334,7 @@ anti_aliasing = false
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+scale = Vector2(5, 5)
 script = ExtResource("1_gbdqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -354,9 +355,9 @@ frame_progress = 0.50065
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -10.0
-offset_top = 18.0
+offset_top = -21.6
 offset_right = 10.0
-offset_bottom = 22.0
+offset_bottom = -17.6
 theme_override_styles/background = SubResource("StyleBoxFlat_tbmaa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pm17s")
 step = 1.0
