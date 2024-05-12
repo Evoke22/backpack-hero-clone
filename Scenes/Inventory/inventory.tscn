@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://0yxctg8p78s"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory.gd" id="1_r7ws4"]
+[ext_resource type="Texture2D" uid="uid://xx48a4oec7ib" path="res://Assets/Inventory/InvBorder.png" id="1_xryeu"]
+[ext_resource type="Theme" uid="uid://txeh572jgffw" path="res://Themes/Button.tres" id="3_sc1yg"]
+[ext_resource type="Texture2D" uid="uid://dtsbp57vcmegv" path="res://Assets/Inventory/Gui/GUI.png" id="4_ylk5h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwu6n"]
+texture = ExtResource("4_ylk5h")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(113, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8td8"]
+texture = ExtResource("4_ylk5h")
+region_rect = Rect2(113, 113, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o81gb"]
+texture = ExtResource("4_ylk5h")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(113, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bqiw"]
+texture = ExtResource("4_ylk5h")
+region_rect = Rect2(113, 113, 30, 14)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7ws4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 413.0
+offset_bottom = 531.0
+texture = ExtResource("1_xryeu")
+
+[node name="full area(vbox)" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 95.0
+offset_right = -40.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid area(hbox)" type="HBoxContainer" parent="TextureRect/full area(vbox)"]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/full area(vbox)/Grid area(hbox)"]
+layout_mode = 2
+theme_override_constants/h_separation = -1
+theme_override_constants/v_separation = -4
+columns = 5
+
+[node name="Button area (hbox)" type="HBoxContainer" parent="TextureRect/full area(vbox)"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+
+[node name="seperator(vbox)" type="VBoxContainer" parent="TextureRect/full area(vbox)/Button area (hbox)"]
+layout_mode = 2
+
+[node name="Upper button(hbox)" type="HBoxContainer" parent="TextureRect/full area(vbox)/Button area (hbox)/seperator(vbox)"]
+custom_minimum_size = Vector2(337, 53)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Lower button(hbox)" type="HBoxContainer" parent="TextureRect/full area(vbox)/Button area (hbox)/seperator(vbox)"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_spawn" type="Button" parent="TextureRect/full area(vbox)/Button area (hbox)/seperator(vbox)/Lower button(hbox)"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("3_sc1yg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dwu6n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x8td8")
+text = "Test"
+
+[node name="Button2" type="Button" parent="TextureRect/full area(vbox)/Button area (hbox)/seperator(vbox)/Lower button(hbox)"]
+texture_filter = 3
+texture_repeat = 2
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("3_sc1yg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o81gb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4bqiw")
+text = "Test 2"
+
+[connection signal="pressed" from="TextureRect/full area(vbox)/Button area (hbox)/seperator(vbox)/Lower button(hbox)/Button_spawn" to="." method="_on_button_spawn_pressed"]

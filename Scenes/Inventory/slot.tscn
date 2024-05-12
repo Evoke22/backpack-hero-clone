@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcpsukbry3vxl"]
+
+[ext_resource type="Texture2D" uid="uid://bxqhvok1ofmg" path="res://Assets/Inventory/Gui/Inventory_Slot_1.png" id="1_cy5uh"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot.gd" id="2_jnjum"]
+
+[node name="Slot" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+texture = ExtResource("1_cy5uh")
+expand_mode = 1
+script = ExtResource("2_jnjum")
+
+[node name="filter(color)" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

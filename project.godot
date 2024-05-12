@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Background/background.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DataHandler="*res://Scripts/Inventory/Data_Handler.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
