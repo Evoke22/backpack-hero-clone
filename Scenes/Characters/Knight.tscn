@@ -367,6 +367,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujorw"]
+radius = 1.6
+height = 3.2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bobj0"]
 bg_color = Color(0, 0, 0, 1)
@@ -386,10 +388,11 @@ script = ExtResource("1_fs21m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c0hp5")
 animation = &"idle"
-autoplay = "walk"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ujorw")
+debug_color = Color(0.976779, 0.992034, 0.992492, 0.42)
 
 [node name="HealthNode" type="Node2D" parent="."]
 scale = Vector2(-1, 1)

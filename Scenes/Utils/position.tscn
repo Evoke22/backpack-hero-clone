@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtimgw433qxox"]
+
+[ext_resource type="Script" path="res://Scripts/Utils/Position.gd" id="1_r874o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erm1w"]
+radius = 4.0
+
+[node name="Position" type="Area2D"]
+script = ExtResource("1_r874o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_erm1w")
+debug_color = Color(0.268354, 0.623719, 0.317306, 0.42)

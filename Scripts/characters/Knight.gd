@@ -20,4 +20,3 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			if event.pressed:
 				selected = !selected
 				$Selection_Border.visible = !$Selection_Border.visible
-				print(selected)

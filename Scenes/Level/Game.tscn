@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://co71p5hbqr7gs"]
+
+[ext_resource type="Script" path="res://Scripts/Level/Game.gd" id="1_mb2yn"]
+[ext_resource type="PackedScene" uid="uid://tn5pneawyqtm" path="res://Scenes/Background/background.tscn" id="2_x2wp4"]
+[ext_resource type="PackedScene" uid="uid://cplco1omti57b" path="res://Scenes/Characters/Player.tscn" id="3_0h1rb"]
+[ext_resource type="PackedScene" uid="uid://8rpfwatsq4x8" path="res://Scenes/Utils/enemy_spawn_point.tscn" id="4_eo30x"]
+[ext_resource type="PackedScene" uid="uid://dtimgw433qxox" path="res://Scenes/Utils/position.tscn" id="4_th0h7"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_mb2yn")
+
+[node name="background" parent="." instance=ExtResource("2_x2wp4")]
+position = Vector2(3, -317)
+
+[node name="Player" parent="." instance=ExtResource("3_0h1rb")]
+position = Vector2(284, 546)
+
+[node name="Position" parent="." instance=ExtResource("4_th0h7")]
+visibility_layer = 3
+position = Vector2(576, 568)
+
+[node name="Position2" parent="." instance=ExtResource("4_th0h7")]
+visibility_layer = 3
+position = Vector2(768, 568)
+
+[node name="Position3" parent="." instance=ExtResource("4_th0h7")]
+visibility_layer = 3
+position = Vector2(960, 568)
+
+[node name="Enemy_Spawn_Point" parent="." instance=ExtResource("4_eo30x")]
+position = Vector2(1112, 568)
+
+[connection signal="body_entered" from="Position" to="." method="_on_position_body_entered"]
+[connection signal="position_empty" from="Position" to="." method="_on_position_position_empty"]
+[connection signal="position_empty" from="Position2" to="." method="_on_position_2_position_empty"]
+[connection signal="position_empty" from="Position3" to="." method="_on_position_3_position_empty"]
